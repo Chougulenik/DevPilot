@@ -1,0 +1,183 @@
+.timeline {
+  width: 100%;
+  animation: fadeIn 400ms ease forwards;
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--txt-primary);
+}
+
+.titleIcon {
+  font-size: 1rem;
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  color: var(--txt-muted);
+}
+
+/* ---- Graph Layout ---- */
+.graph {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+}
+
+.orchestratorRow {
+  width: 100%;
+}
+
+/* ---- Branch Connectors ---- */
+.branchRow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 48px;
+  position: relative;
+}
+
+.branchLine {
+  width: 2px;
+  height: 20px;
+  background: linear-gradient(to bottom, var(--clr-primary), var(--clr-border));
+  margin: 0 auto;
+}
+
+.branchForks {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+  position: relative;
+}
+
+.branchForks::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: calc(100% / 6);
+  right: calc(100% / 6);
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--clr-border), var(--clr-primary), var(--clr-border), transparent);
+}
+
+.fork {
+  height: 28px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--clr-border), var(--clr-primary));
+  margin: 0 auto;
+}
+
+/* ---- Sub-Agents ---- */
+.subAgentsRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.subAgentColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.subAgentConnector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 24px;
+  position: relative;
+}
+
+.subAgentLine {
+  width: 2px;
+  flex: 1;
+  background: var(--clr-border);
+}
+
+.subAgentDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--clr-border);
+  border: 2px solid var(--clr-bg-800);
+  position: absolute;
+  bottom: 0;
+  transition: background 300ms ease, box-shadow 300ms ease;
+}
+
+.dot--thinking { background: var(--clr-thinking); box-shadow: 0 0 8px rgba(245,158,11,0.5); animation: pulseAmber 1.2s ease-in-out infinite; }
+.dot--running  { background: var(--clr-running);  box-shadow: 0 0 8px rgba(99,120,255,0.5); animation: pulseBlue 1s ease-in-out infinite; }
+.dot--complete { background: var(--clr-complete); box-shadow: 0 0 8px rgba(0,212,170,0.4); }
+.dot--error    { background: var(--clr-error);    }
+.dot--waiting_approval { background: var(--clr-approval); animation: pulseApproval 1.5s ease-in-out infinite; }
+
+@keyframes pulseAmber {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(245,158,11,0.6); }
+  50% { box-shadow: 0 0 0 6px rgba(245,158,11,0); }
+}
+@keyframes pulseBlue {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(99,120,255,0.6); }
+  50% { box-shadow: 0 0 0 6px rgba(99,120,255,0); }
+}
+@keyframes pulseApproval {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(168,85,247,0.6); }
+  50% { box-shadow: 0 0 0 6px rgba(168,85,247,0); }
+}
+
+/* ---- Connector (legacy, kept for alt layouts) ---- */
+.connector {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.connectorLine {
+  width: 2px;
+  height: 100%;
+  background: var(--clr-border);
+}
+
+.connectorDot {
+  width: 8px;
+  height: 8px;
+  background: var(--clr-primary);
+  border-radius: 50%;
+  position: absolute;
+  animation: travelDown 1s linear infinite;
+}
+
+@keyframes travelDown {
+  from { top: 0; opacity: 1; }
+  to { top: 100%; opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .subAgentsRow {
+    grid-template-columns: 1fr;
+  }
+  .branchForks {
+    grid-template-columns: 1fr;
+  }
+  .branchForks::before { display: none; }
+}

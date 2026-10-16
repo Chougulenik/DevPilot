@@ -1,0 +1,214 @@
+.wrapper {
+  background: linear-gradient(135deg, rgba(0,212,170,0.06), rgba(99,120,255,0.06));
+  border: 1px solid rgba(0,212,170,0.2);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  animation: slideUp 400ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ---- Header ---- */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  background: rgba(0,212,170,0.07);
+  border-bottom: 1px solid rgba(0,212,170,0.12);
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.headerIcon {
+  width: 44px;
+  height: 44px;
+  background: rgba(0,212,170,0.15);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  border: 1px solid rgba(0,212,170,0.25);
+}
+
+.title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--clr-complete);
+  margin-bottom: 2px;
+}
+
+.timestamp {
+  font-size: 0.75rem;
+  color: var(--txt-muted);
+  font-family: var(--font-mono);
+}
+
+/* ---- Confidence ---- */
+.confidence {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.confidenceBar {
+  width: 100px;
+  height: 6px;
+  background: var(--clr-bg-600);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.confidenceFill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 800ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.confidenceLabel {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* ---- Sections ---- */
+.section {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--clr-border);
+}
+.section:last-child { border-bottom: none; }
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--txt-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 14px;
+}
+
+/* ---- Analysis Text ---- */
+.analysisText {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.analysisText p {
+  font-size: 0.9375rem;
+  color: var(--txt-primary);
+  line-height: 1.7;
+}
+
+/* ---- Sources ---- */
+.sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.source {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--clr-bg-700);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-full);
+  padding: 5px 12px;
+  font-size: 0.8125rem;
+}
+
+.sourceType {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--clr-primary-light);
+  background: var(--clr-running-bg);
+  padding: 1px 6px;
+  border-radius: var(--radius-full);
+}
+
+.sourceDesc {
+  color: var(--txt-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.sourceLine {
+  color: var(--txt-muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+/* ---- Next Steps ---- */
+.nextSteps {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nextStep {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--clr-bg-700);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  transition: border-color 150ms ease;
+}
+.nextStep:hover { border-color: var(--clr-border-bright); }
+
+.stepNum {
+  width: 24px;
+  height: 24px;
+  background: var(--clr-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  color: #fff;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.stepText {
+  flex: 1;
+  font-size: 0.875rem;
+  color: var(--txt-primary);
+  line-height: 1.55;
+  font-family: var(--font-mono);
+  word-break: break-all;
+}
+
+.copyStepBtn {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-sm);
+  color: var(--txt-muted);
+  font-size: 0.875rem;
+  padding: 4px 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 150ms ease;
+  font-family: var(--font-sans);
+}
+.copyStepBtn:hover { background: var(--clr-surface-raised); color: var(--txt-primary); border-color: var(--clr-primary); }
