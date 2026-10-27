@@ -1,0 +1,32 @@
+[project]
+name = "enterprise-rag-backend"
+version = "1.0.0"
+description = "Production-grade Enterprise Retrieval-Augmented Generation (RAG) platform"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "pydantic",
+    "pydantic-settings",
+    "python-dotenv",
+    "python-multipart",
+    "httpx",
+    "chromadb",
+    "langchain",
+    "langchain-community",
+    "langchain-core",
+    "langchain-google-genai",
+    "langchain-chroma",
+    "langchain-experimental",
+    "rank-bm25",
+    "pypdf",
+    "cohere",
+    "langchain-cohere",
+    "pytest",
+    "pytest-asyncio",
+    "google-genai>=2.33.0",
+]
+
+[tool.uv]
+package = false
